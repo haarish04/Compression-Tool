@@ -1,1 +1,7 @@
 A simple txt file to keep track of my progress and how I designed this application
+
+For this project I have chosen java as my language built with gradle. Building java projects with vscode is not straightforward. I referred to this page (https://code.visualstudio.com/docs/java/java-tutorial) to setup java on vscode
+
+For build tools I decided to choose gradle as it is go-to for all the projects in recent times. The other option was maven which I did not opt for. You can think of Gradle as goodness of Ant and Maven put together minus the noise of XML. And scriptability with groovy is very big plus.
+Gradle build files are less verbose as they are written in groovy.
+It provides very nice DSL for writing build tasks.

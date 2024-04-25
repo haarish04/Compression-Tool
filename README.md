@@ -13,10 +13,6 @@ To get a gist of the algorithm + the implementation part of Huffman encoding che
 
 ## Build
 
-Import npm packages
-
-npm install
-
 ## Usage
 
 ## Run
