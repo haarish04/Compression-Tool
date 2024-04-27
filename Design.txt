@@ -25,3 +25,4 @@ Starting with reading the file. (https://www.baeldung.com/reading-file-in-java)
 
 There are different ways of taking file input such as using FileUtils class of the commons-io Library, using the bufferedReadr class, using the NIO package using the readAllLines method, reading with a scanner or converting the text using streamTokenizer.
 The most widely used methods are either using BufferedReader or using the NIO package. I will be using the NIO package for my project.
+
