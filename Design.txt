@@ -28,6 +28,9 @@ The most widely used methods are either using BufferedReader or using the NIO pa
 
 I faced a big issue while compiling and running the file input part of the program. The terminal did not recognize me importing class from another java file for some reason. This was despite compiling both the java files together and then running them. 
 Instead of this I directly hit the debug and run button instead of doing the traditional javac and java command. Now the problem was providing command line input, had to create run configurations and add the filename as args to the run configuration in the launch.json file. This is a temporary fix which I need to take care of in the end to dynamically accept input file path. For now, the file input part of the program works as intended.
+
+Another small issue is I am recieving the file contents in a try block and therefore cannot access it outisde the block. I need to use te contents in other try catch blocks as well for encoding, decoding etc.
+In order to bypass this, I declared the variable at the class level to keep it in the scope of the Main class. Also had to declare it static coz static method.
 --------------------------------------------------------------------------
 
 The next part is to compress the file using Huffman encoding for which I need to implement binary trees
