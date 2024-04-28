@@ -13,6 +13,8 @@ To get a gist of the algorithm + the implementation part of Huffman encoding che
 
 ## Build
 
+The most popular choice for java projects is eclipse but just as an experiment, I worked on this project using vscode as my IDE. It was easy and did not take much time. I followed the [docs](https://code.visualstudio.com/docs/java/java-tutorial) to setup the java environment. I also used gradle build tools for my project along with version JDK 21. There are no other packages required as such to build this project, this is just a regular java project ( no spring, hibernate etc frameworks needed in the build process).
+
 ## Usage
 
 ## Run
