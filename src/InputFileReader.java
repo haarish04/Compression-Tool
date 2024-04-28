@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class InputFileReader {
 
-    public void readFile(String filePath) throws IOException{
+    public String readFile(String filePath) throws IOException{
 
         Path path = Paths.get(filePath);
         BufferedReader br = null;
@@ -14,12 +14,19 @@ public class InputFileReader {
             br= Files.newBufferedReader(path);
             String line= br.readLine();
     
-            System.out.println(line);
+            //System.out.println(line);
+
+            return line;
+        }
+        catch(IOException e){
+            e.printStackTrace();
+            return null;
         }
         finally{
             if(br != null)
                 br.close();
         }
+
 
     }
     
