@@ -7,6 +7,8 @@ public class Main {
         System.out.println(filePath);
         System.out.println(operation);
 
+        String code;
+
         try{
             InputFileReader input = new InputFileReader();
             file= input.readFile(filePath);
@@ -19,7 +21,9 @@ public class Main {
             case "-e": 
             {
                 Encoding encode= new Encoding();
-                encode.createEncoding(file);
+                code = encode.createEncoding(file);
+                System.out.println("The encoded text is:\n");
+                System.out.println(code);
                 break;
             }
 

@@ -22,12 +22,13 @@ class Node{
 
 public class Encoding {
     Map<Character, String> encoding= new HashMap<>();
+    String code;
 
-    public void createEncoding(String text){
+    public String createEncoding(String text){
 
         //Case where there is no content in the file
         if(text== null || text.length()==0)
-            return;
+            return "";
         
 
         //Create map of characters and frequencies
@@ -67,7 +68,9 @@ public class Encoding {
 
         //Iterate through the queue and create the bit encoding for each node in the tree
         encodeData(root, "", encoding);
-        displayEncoding(encoding, text);
+        code= displayEncoding(encoding, text);
+
+        return code;
 
     }
 
@@ -84,14 +87,13 @@ public class Encoding {
         encodeData(root.right, str + "1", encoding);
     }
     
-    public static void displayEncoding(Map< Character, String> encoding, String text){
+    public static String displayEncoding(Map< Character, String> encoding, String text){
         //Iterate through the text and print the encoding for each character
 
         StringBuilder sb= new StringBuilder();
         for(char c: text.toCharArray())
             sb.append(encoding.get(c));
-        System.out.println("The encoded string is:\n");
-        System.out.println(sb);
+        return sb.toString();
 
     }
 
