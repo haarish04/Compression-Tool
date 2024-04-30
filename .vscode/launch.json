@@ -15,14 +15,7 @@
       "name": "Main",
       "request": "launch",
       "mainClass": "Main",
-      "args": ["test.txt", "-e"],
-      "projectName": "Compression Tool_e1417e76"
-    },
-    {
-      "type": "java",
-      "name": "test",
-      "request": "launch",
-      "mainClass": "test",
+      "args": "test.txt",
       "projectName": "Compression Tool_e1417e76"
     }
   ]

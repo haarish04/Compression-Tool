@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args){
         String filePath= args[0];
         String operation = args[1];
-        System.out.println(filePath);
-        System.out.println(operation);
+        // System.out.println(filePath);
+        // System.out.println(operation);
 
         String code;
 
@@ -17,29 +17,17 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        switch(operation){
-            case "-e": 
-            {
-                Encoding encode= new Encoding();
-                code = encode.createEncoding(file);
-                System.out.println("The encoded text is:\n");
-                System.out.println(code);
-                break;
-            }
 
-            case "-d":
-            {
-                Decoding decode = new Decoding();
-                break;
-            }
-
-            default:
-                System.out.println("Invalid operation");
-                break;
-        }
-
-
-
+            
+        Encoding encode= new Encoding();
+        code = encode.createEncoding(file);
+        System.out.println("\nThe encoded text is:");
+        System.out.println(code +"\n");
+    
+            
+        Decoding decode = new Decoding();
+        decode.decodeText(code, encode.encoding);
+            
 
     }
 }
