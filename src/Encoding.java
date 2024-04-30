@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Node{
-    char ch;
+    Character ch;
     int freq;
     Node left=null;
     Node right= null;
@@ -21,6 +21,8 @@ class Node{
 }
 
 public class Encoding {
+    Map<Character, String> encoding= new HashMap<>();
+
     public void createEncoding(String text){
 
         //Case where there is no content in the file
@@ -62,7 +64,6 @@ public class Encoding {
 
 
         //Create a map to store the encoding for each character
-        Map<Character, String> encoding= new HashMap<>();
 
         //Iterate through the queue and create the bit encoding for each node in the tree
         encodeData(root, "", encoding);
