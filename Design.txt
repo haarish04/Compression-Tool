@@ -19,7 +19,7 @@ This project can be divided into three parts:
     * Compressing/Encoding the file
     * Decoding the file
 
---------------------------------------------------------------------------
+<-------------------------------------------------------------------------->
 
 Starting with reading the file. (https://www.baeldung.com/reading-file-in-java)
 
@@ -31,7 +31,8 @@ Instead of this I directly hit the debug and run button instead of doing the tra
 
 Another small issue is I am recieving the file contents in a try block and therefore cannot access it outisde the block. I need to use te contents in other try catch blocks as well for encoding, decoding etc.
 In order to bypass this, I declared the variable at the class level to keep it in the scope of the Main class. Also had to declare it static coz static method.
---------------------------------------------------------------------------
+
+<-------------------------------------------------------------------------->
 
 The next part is to compress the file using Huffman encoding for which I need to implement binary tree
 
@@ -54,15 +55,18 @@ After creating tree, we need to assign the encoding bit to each character in the
 We start from the root node and keep traversing to the leaf nodes by calling the encoding function recursively and each time we move left we add a 0 and for each right move we add a 1.
 Finally the tree would look like this:
 
-                     root node(8)
+                    root node(freq: 8)
 
-                    /           \
+            [0]     /           \    [1]
+                   /             \
 
-             [0]   (3)           c(5)  [1]
+                (freq: 3)           c(freq:5)  
+                
 
-                /       \      
+        [0]     /           \     [1]   
+               /             \  
 
-        [0]  a(1)      e(2)   [1]
+            a(freq: 1)      e(freq: 2)   
 
 The encoding can be read as:
 
@@ -73,3 +77,4 @@ c -> 1
 This encoding will be stored in a HashMap for each character in the text. This will be required by the decoding module to decode the code.
 Now we have the encoding for each character in the text. We can now encode the text using the encoding and display the code to the user.
 
+<-------------------------------------------------------------------------->
