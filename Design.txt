@@ -33,4 +33,43 @@ Another small issue is I am recieving the file contents in a try block and there
 In order to bypass this, I declared the variable at the class level to keep it in the scope of the Main class. Also had to declare it static coz static method.
 --------------------------------------------------------------------------
 
-The next part is to compress the file using Huffman encoding for which I need to implement binary trees
+The next part is to compress the file using Huffman encoding for which I need to implement binary tree
+
+For this, I have created node class that stores the character and its frequency. I will create such nodes for every character present in the text data passed as input and push it into a queue in ascending order.
+
+Now take 2 nodes at a time and start creating a tree by combining the 2 nodes to create 1 and keep doing it until we have one last node which will be the root node.
+It would look like this: Input text: ccaececc
+
+                     root node(8)
+
+                    /           \
+
+                   (3)           c(5)
+
+                /       \      
+
+              a(1)      e(2)   
+
+After creating tree, we need to assign the encoding bit to each character in the tree.
+We start from the root node and keep traversing to the leaf nodes by calling the encoding function recursively and each time we move left we add a 0 and for each right move we add a 1.
+Finally the tree would look like this:
+
+                     root node(8)
+
+                    /           \
+
+             [0]   (3)           c(5)  [1]
+
+                /       \      
+
+        [0]  a(1)      e(2)   [1]
+
+The encoding can be read as:
+
+a -> 00
+e -> 01
+c -> 1
+
+This encoding will be stored in a HashMap for each character in the text. This will be required by the decoding module to decode the code.
+Now we have the encoding for each character in the text. We can now encode the text using the encoding and display the code to the user.
+
