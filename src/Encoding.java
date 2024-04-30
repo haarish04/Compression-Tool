@@ -1,8 +1,8 @@
 import java.util.*;
 
 class Node{
-    Character ch;
-    Integer freq;
+    char ch;
+    int freq;
     Node left=null;
     Node right= null;
 
@@ -21,7 +21,7 @@ class Node{
 }
 
 public class Encoding {
-    public void createTree(String text){
+    public void createEncoding(String text){
 
         //Case where there is no content in the file
         if(text== null || text.length()==0)
@@ -45,6 +45,7 @@ public class Encoding {
         
 
         //Run loop until there is only one node left in the queue
+        //Checking for I node in queue becoz all the nodes must pair up leaving only one node at the end which would be the root of the tree
         while(pq.size()!=1){
 
             //take the two smallest freq from queue and start constructing a tree
@@ -56,12 +57,42 @@ public class Encoding {
             pq.add(new Node(null, sum, left, right));
         }
 
+        //The node at the top will be the root
+        Node root= pq.peek();
 
 
+        //Create a map to store the encoding for each character
+        Map<Character, String> encoding= new HashMap<>();
+
+        //Iterate through the queue and create the bit encoding for each node in the tree
+        encodeData(root, "", encoding);
+        displayEncoding(encoding, text);
 
     }
 
+    public static void encodeData(Node root, String str, Map<Character, String> encoding){
+        //Base case
+        if(root== null)
+            return;
 
+        //If the node is a leaf node, add the encoding to the map
+        if(root.left == null && root.right == null)
+            encoding.put(root.ch, str.length()> 0 ? str : "1");
+        
+        encodeData(root.left, str + "0", encoding);
+        encodeData(root.right, str + "1", encoding);
+    }
+    
+    public static void displayEncoding(Map< Character, String> encoding, String text){
+        //Iterate through the text and print the encoding for each character
+
+        StringBuilder sb= new StringBuilder();
+        for(char c: text.toCharArray())
+            sb.append(encoding.get(c));
+        System.out.println("The encoded string is:\n");
+        System.out.println(sb);
+
+    }
 
     
 }

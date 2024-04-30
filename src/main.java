@@ -3,7 +3,9 @@ public class Main {
 
     public static void main(String[] args){
         String filePath= args[0];
-        //System.out.println(filePath);
+        String operation = args[1];
+        System.out.println(filePath);
+        System.out.println(operation);
 
         try{
             InputFileReader input = new InputFileReader();
@@ -13,8 +15,25 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        //System.out.println(file);
-        
+        switch(operation){
+            case "-e": 
+            {
+                Encoding encode= new Encoding();
+                encode.createEncoding(file);
+                break;
+            }
+
+            case "-d":
+            {
+                Decoding decode = new Decoding();
+                break;
+            }
+
+            default:
+                System.out.println("Invalid operation");
+                break;
+        }
+
 
 
 
