@@ -61,7 +61,7 @@ Finally the tree would look like this:
                    /             \
 
                 (freq: 3)           c(freq:5)  
-                
+
 
         [0]     /           \     [1]   
                /             \  
@@ -78,3 +78,13 @@ This encoding will be stored in a HashMap for each character in the text. This w
 Now we have the encoding for each character in the text. We can now encode the text using the encoding and display the code to the user.
 
 <-------------------------------------------------------------------------->
+
+The decoding of the huffman caode can be done in 2 ways:
+
+- Method 1-
+
+Iterate through the encoded string and for each character traverse through the tree until we reach the leaf node. This leaf node will imply one character in the text.Now we continue the same process for all the bits in the encoded string to retrieve the original text.
+
+
+- Method 2-
+
