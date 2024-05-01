@@ -1,9 +1,10 @@
+import java.util.BitSet;
+
 public class Main {
     static String file;
 
     public static void main(String[] args){
         String filePath= args[0];
-        String operation = args[1];
         // System.out.println(filePath);
         // System.out.println(operation);
 
@@ -27,7 +28,12 @@ public class Main {
             
         Decoding decode = new Decoding();
         decode.decodeText(code, encode.encoding);
-            
+
+        FileSize fs = new FileSize();
+        System.out.println("The original file size: "+fs.getFileSize(file)+ " bytes");
+        System.out.println(encode.bitSet.size());
+        System.out.println(encode.encoding);
+  
 
     }
 }

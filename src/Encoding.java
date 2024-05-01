@@ -23,6 +23,7 @@ class Node{
 public class Encoding {
     Map<Character, String> encoding= new HashMap<>();
     String code;
+    BitSet bitSet;
 
     public String createEncoding(String text){
 
@@ -70,6 +71,13 @@ public class Encoding {
         encodeData(root, "", encoding);
         code= displayEncoding(encoding, text);
 
+        bitSet= new BitSet(code.length());
+
+        for(int i=0;i< code.length();i++)
+        {
+            if(code.charAt(i)=='1')
+            bitSet.set(i);
+        }
         return code;
 
     }
