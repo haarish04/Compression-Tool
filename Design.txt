@@ -88,3 +88,25 @@ Iterate through the encoded string and for each character traverse through the t
 
 - Method 2-
 
+Iterate through the encoded string from the last element and try to match the largest substring that is a code for a character which we can get from the map. A simple example would look like:
+
+Suppose,
+
+a -> 00
+e -> 01
+c -> 1
+
+And the encoded string is: 00110001
+
+We start from the end and consider the entire string 00110001, this does not match with any code in our map so now we move backwards
+
+Now we check for [0011000] 1, this is also no match
+Next [001100]01, nope
+Now we check for [00110]001, nope
+Now we check for [0011]0001, nope
+Now we check for [001]10001, nope
+Now we check for [00]110001, this is a match for a. So now we have decoded "a" and we remove its string from the code
+
+Now we check for 110001 and follow the same steps
+
+The decoded string is accae
