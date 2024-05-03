@@ -1,7 +1,7 @@
 import java.nio.file.*;
 import java.io.BufferedReader;
 import java.io.IOException;
-
+import java.util.stream.Collectors;
 
 public class InputFileReader {
 
@@ -12,11 +12,11 @@ public class InputFileReader {
 
         try{
             br= Files.newBufferedReader(path);
-            String line= br.readLine();
+            String content = br.lines().collect(Collectors.joining("\n"));
     
-            //System.out.println(line);
+            //System.out.println(content);
 
-            return line;
+            return content;
         }
         catch(IOException e){
             e.printStackTrace();
@@ -26,8 +26,5 @@ public class InputFileReader {
             if(br != null)
                 br.close();
         }
-
-
     }
-    
 }
