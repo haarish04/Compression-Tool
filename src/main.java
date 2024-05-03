@@ -1,12 +1,8 @@
-import java.util.BitSet;
-
 public class Main {
     static String file;
 
     public static void main(String[] args){
         String filePath= args[0];
-        // System.out.println(filePath);
-        // System.out.println(operation);
 
         String code;
 
@@ -18,22 +14,33 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        //Encode the file to bits and write contents to output file
 
+        Encoding encodeFile= new Encoding();
+        code = encodeFile.createEncoding(file);
+        OutputWriter out = new OutputWriter("output.txt");    
+        out.writeToFile("The file has been encoded as:\n\n"+code);
+        out.writeToFile("\n\n<------------------------------------------------------------------->");
             
-        Encoding encode= new Encoding();
-        code = encode.createEncoding(file);
-        System.out.println("\nThe encoded text is:");
-        System.out.println(code +"\n");
-    
-            
-        Decoding decode = new Decoding();
-        decode.decodeText(code, encode.encoding);
 
-        FileSize fs = new FileSize();
-        System.out.println("The original file size: "+fs.getFileSize(file)+ " bytes");
-        System.out.println(encode.bitSet.size());
-        System.out.println(encode.encoding);
-  
+        //Decode the encoding and write contents to output file
+        Decoding decodeFile = new Decoding();
+        decodeFile.decodeText(encodeFile.getEncoding(), encodeFile.getBitSet());
+        String decodedString= decodeFile.getdecodedString();
+        out.writeToFile("\n\nThe file contents after decoding:\n\n"+decodedString);
+        out.writeToFile("\n\n<------------------------------------------------------------------->\n\n");
+        
 
+        //Check if original input file and final decoded file match
+        DataChecker check= new DataChecker();
+        String checkIntegrity= check.dataCheck(file, decodedString);
+        out.writeToFile(checkIntegrity);
+        out.writeToFile("\n\n<------------------------------------------------------------------->\n\n");
+
+        DataSize ds = new DataSize();
+        out.writeToFile("The original file size: "+ds.getFileSize(file)+" bytes\n");
+        out.writeToFile("The encoded file size: "+(ds.getFileSize(encodeFile.bitSet))/8+" bytes");
+
+        System.out.println("\nEncoding/Decoding executed successfully\n");
     }
 }

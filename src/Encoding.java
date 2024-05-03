@@ -84,6 +84,14 @@ public class Encoding {
 
     }
 
+    public BitSet getBitSet(){
+        return bitSet;
+    }
+
+    public Map<Character, String> getEncoding(){
+        return encoding;
+    }
+
     public static void encodeData(Node root, String str, Map<Character, String> encoding){
         //Base case
         if(root== null)
