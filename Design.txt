@@ -84,6 +84,7 @@ The decoding of the huffman caode can be done in 2 ways:
 - Method 1-
 
 Iterate through the encoded string and for each character traverse through the tree until we reach the leaf node. This leaf node will imply one character in the text.Now we continue the same process for all the bits in the encoded string to retrieve the original text.
+Use this method if system has good storage but lesser compute.
 
 
 - Method 2-
@@ -110,3 +111,22 @@ Now we check for [00]110001, this is a match for a. So now we have decoded "a" a
 Now we check for 110001 and follow the same steps
 
 The decoded string is accae
+
+Use this method when storage of the tree might be issue but computing through the string matching O(n^2) is manageable by system.
+
+<-------------------------------------------------------------------------->
+
+
+Now that the we have the decoded string, I faced a new issue. The string accae being encoded as 110001 will look like this while storage:
+
+accae -> 5 bytes
+110001 -> 6 bytes
+
+The problem is storing the code as a string which defeats the purpose of the compression algorithm. We need to store the data in the form of bits.
+
+I couldnt find much on storing data as bits but found an interesting concept of BitSet. I can use this BitSet which is basically used to track which index has a 0 and which has 1
+So using this, I can transmit the bitSet rather than the encoded string. Reconstruct the Encoded string on the recieving system and decode it using my algorithm.
+
+The main idea is to reduce the burden during data transmission which we have accomplished by transmitting the bitSet rather than full encoded string.
+
+Once this is done, the outputWriter will write dump the output in a new or existing file.
