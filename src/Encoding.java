@@ -76,8 +76,10 @@ public class Encoding {
         for(int i=0;i< code.length();i++)
         {
             if(code.charAt(i)=='1')
-            bitSet.set(i);
+                bitSet.set(i);
         }
+        bitSet.set(code.length());
+
         return code;
 
     }
@@ -96,14 +98,12 @@ public class Encoding {
     }
     
     public static String displayEncoding(Map< Character, String> encoding, String text){
+        
         //Iterate through the text and print the encoding for each character
-
         StringBuilder sb= new StringBuilder();
         for(char c: text.toCharArray())
             sb.append(encoding.get(c));
         return sb.toString();
 
     }
-
-    
 }

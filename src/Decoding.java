@@ -1,9 +1,17 @@
 import java.util.*;
 
 public class Decoding {
-    String originalText;
-    public void decodeText(String code, Map<Character, String> encoding){
-        
+    public void decodeText( Map<Character, String> encoding, BitSet bSet){
+
+        StringBuilder codeBuilder = new StringBuilder();
+        for(int i=0; i<bSet.length()-1; i++){
+            if(bSet.get(i))
+                codeBuilder.append("1");
+            else
+                codeBuilder.append("0");
+        }
+        String code= codeBuilder.toString();
+        System.out.println("Decoded binary:\n " + code);
         StringBuilder decodedString= new StringBuilder();
 
         int index=0;
@@ -29,8 +37,7 @@ public class Decoding {
             index += maxLength;
             maxMatch.setLength(0);
         }
-        originalText = decodedString.toString();
-        System.out.println("\nDecoded text:\n " + originalText);
+        System.out.println("\nDecoded text:\n " + decodedString.toString());
     }
     
     
