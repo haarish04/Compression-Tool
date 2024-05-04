@@ -21,6 +21,12 @@ public class Main {
         OutputWriter out = new OutputWriter("output.txt");    
         out.writeToFile("The file has been encoded as:\n\n"+code);
         out.writeToFile("\n\n<------------------------------------------------------------------->");
+
+        //Display the encoding scheme of the characters and their bit sequence
+        GetCode gc = new GetCode();
+        out.writeToFile("\n\nThe encoding scheme for the text file");
+        out.writeToFile(gc.getMap(encodeFile.getEncoding()));
+        out.writeToFile("\n\n<------------------------------------------------------------------->\n\n");
             
 
         //Decode the encoding and write contents to output file
