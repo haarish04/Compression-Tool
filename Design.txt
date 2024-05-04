@@ -129,4 +129,13 @@ So using this, I can transmit the bitSet rather than the encoded string. Reconst
 
 The main idea is to reduce the burden during data transmission which we have accomplished by transmitting the bitSet rather than full encoded string.
 
+<-------------------------------------------------------------------------->
+
+The DataChecker class is used to verify there is no loss of data throughout the compression process. It matches the original file and the final contents after encoding and decoding.
+The DataSize class is used to check the size of the original data and the size of the bitSet converted to bytes. This is to see how much space has been saved.
+The getCode class is used to display the encoding scheme of the characters along with their bit sequence
+
+<-------------------------------------------------------------------------->
+
 Once this is done, the outputWriter will write dump the output in a new or existing file.
+In order to only extract the encode sequence, create another instance of outputWriter and give new file location and dump the contents there.
