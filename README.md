@@ -17,14 +17,14 @@ The most popular choice for java projects is eclipse but just as an experiment, 
 
 ## Usage
 
-1> Clone this repo and open on vscode.
-2> Install jdk version 21
-3> Select gradle tools plugin
-4> Install the java debugger and java extension pack by Microsoft on vscode
-5> Navigate to launch.json file and modify the "args" to include the required file. Existing args is "test.txt" stored in root directory
+1> Clone this repo and open on vscode.\
+2> Install jdk version 21\
+3> Select gradle tools plugin\
+4> Install the java debugger and java extension pack by Microsoft on vscode\
+5> Navigate to launch.json file and modify the "args" to include the required file. Existing args is "test.txt" stored in root directory\
 6> Modify the output file in the main.java to write to a different file
 
 ## Run
 
-To run the file. Store all the java files in one directory and complie all of them together. And execute main.java by providing the input file as args
+To run the file. Store all the java files in one directory and complie all of them together. And execute main.java by providing the input file as args\
 If using vscode simply click on the run button on the top left of window in main.java
